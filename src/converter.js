@@ -29,7 +29,9 @@ class Converter {
           videoList.push(`file ${videoPath}`)
         }
         const videoListPath = path.join(tmpDir, "list")
-        fs.unlinkSync(output)
+        if (fs.existsSync(output)) {
+          fs.unlinkSync(output)
+        }
         fs.writeFileSync(videoListPath, videoList.join("\n"), 'utf8')
         console.log(`[${"Concat Parts to".green}] ${output}`)
         if (shell.exec(`ffmpeg -f concat -safe 0  -i ${videoListPath} -c copy ${output}`, { silent: true }).code !== 0) {
