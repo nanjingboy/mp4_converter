@@ -1,0 +1,33 @@
+{
+  "name": "mp4_converter",
+  "version": "1.0.0",
+  "description": "A simple tool to convert video file to mp4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanjingboy/mp4_converter.git"
+  },
+  "keywords": [
+    "video",
+    "mp4",
+    "converter"
+  ],
+  "author": "Tom.Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nanjingboy/mp4_converter/issues"
+  },
+  "homepage": "https://github.com/nanjingboy/mp4_converter",
+  "engines": {
+    "node": ">=4"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "ffmpeg": "0.0.4",
+    "shelljs": "^0.7.7",
+    "tmp": "0.0.31"
+  },
+  "bin": {
+    "mp4_converter": "./bin/mp4_converter"
+  }
+}
