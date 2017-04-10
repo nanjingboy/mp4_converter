@@ -1,6 +1,10 @@
 # mp4_converter
 A simple tool to convert video file to mp4
 
+## Requirement
+
+* [FFmpeg](http://ffmpeg.org/)
+
 ## Installing
 
 ```shell
