@@ -5,7 +5,7 @@ const path = require("path")
 const program = require("commander")
 const converter = require("../src/converter")
 
-program.version("1.0.0")
+program.version("1.0.1")
   .option("-i, --input <path>", "the path of the sorce video file")
   .option("-o, --output <path>", "the path of the converted mp4")
 
