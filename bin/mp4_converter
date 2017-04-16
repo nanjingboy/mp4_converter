@@ -5,12 +5,13 @@ const path = require("path")
 const program = require("commander")
 const converter = require("../src/converter")
 
-program.version("1.0.1")
+program.version("1.0.3")
   .option("-i, --input <path>", "the path of the sorce video file")
   .option("-o, --output <path>", "the path of the converted mp4")
+  .option("-s, --size [size]", "set frame size(WxH)", /^\d+\*\d+$/i, "default")
 
 program.parse(process.argv)
 
 if (program.input && program.output) {
-  converter.convert(path.resolve(program.input), path.resolve(program.output))
+  converter.convert(path.resolve(program.input), path.resolve(program.output), program.size)
 }

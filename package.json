@@ -1,6 +1,6 @@
 {
   "name": "mp4_converter",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple tool to convert video file to mp4",
   "repository": {
     "type": "git",

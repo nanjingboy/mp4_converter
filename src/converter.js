@@ -9,7 +9,7 @@ const ffmpeg = require("ffmpeg")
 
 class Converter {
 
-  static convert(input, output) {
+  static convert(input, output, size) {
     try {
       new ffmpeg(input, (error, video) => {
         if (error) {
@@ -19,9 +19,14 @@ class Converter {
         const seconds = video.metadata.duration.seconds
         const tmpDir = tmp.dirSync({ mode: "0750", prefix: 'video_converter_' }).name
         for (let position = 0; position <= seconds; position += 60) {
+          let command
           const index =  videoList.length + 1
           const videoPath = path.join(tmpDir, `${index}.mp4`)
-          const command = `ffmpeg -i ${input} -vcodec libx264 -acodec aac -s 480*360 -ss ${position} -t 60 ${videoPath}`
+          if (size === 'default') {
+            command = `ffmpeg -i ${input} -vcodec libx264 -acodec aac -ss ${position} -t 60 ${videoPath}`
+          } else {
+            command = `ffmpeg -i ${input} -vcodec libx264 -acodec aac -s ${size} -ss ${position} -t 60 ${videoPath}`
+          }
           console.log(`[${`Convert Part ${index}`.green}] ${input}`)
           if (shell.exec(command, { silent: true }).code !== 0) {
             this.error(input)
